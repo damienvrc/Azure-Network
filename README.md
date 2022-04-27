@@ -42,14 +42,14 @@ az network vnet subnet create --vnet-name vnet -n GatewaySubnet -g %YOURRESSOURC
 az network public-ip create -n vnet_01_pip -g %YOURRESSOURCEGROUP% --allocation-method Dynamic
 
 (45min)
-az network vnet-gateway create -n vnet_01_gateway -l northeurope --public-ip-address havas_vnet_03_pip -g %YOURRESSOURCEGROUP% --vnet vnet --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait 
+az network vnet-gateway create -n vnet_01_gateway -l northeurope --public-ip-address vnet_03_pip -g %YOURRESSOURCEGROUP% --vnet vnet --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait 
 
 ## If different ressource group
 
-az network vnet-gateway show -n havas_vnet_03_gateway -g HAVAS-WORKSHOP
+az network vnet-gateway show -n vnet_03_gateway -g %YOURRESSOURCEGROUP%
 Copy ID
 
-az network vpn-connection create –n VNET03toVNET04 -g HAVAS-WORKSHOP --vnet-gateway1 /subscriptions/XXXXXX/resourceGroups/%YOURRESSOURCEGROUP%/providers/Microsoft.Network/virtualNetworkGateways/vnet_01_gateway -l northeurope --shared-key « XXXXXXX" --vnet-gateway2 /subscriptions/XXXXXXX/resourceGroups/%YOURRESSOURCEGROUP%/providers/Microsoft.Network/virtualNetworkGateways/vnet_02_gateway
+az network vpn-connection create –n VNET03toVNET04 -g %YOURRESSOURCEGROUP% --vnet-gateway1 /subscriptions/XXXXXX/resourceGroups/%YOURRESSOURCEGROUP%/providers/Microsoft.Network/virtualNetworkGateways/vnet_01_gateway -l northeurope --shared-key « XXXXXXX" --vnet-gateway2 /subscriptions/XXXXXXX/resourceGroups/%YOURRESSOURCEGROUP%/providers/Microsoft.Network/virtualNetworkGateways/vnet_02_gateway
 
 
 ## If same ressource group
