@@ -59,4 +59,5 @@ az network vpn-connection create -n VNET04toVNET03 -g %YOURRESSOURCEGROUP% --vne
 
 az network vpn-connection show --name VNET03toVNET04 --resource-group %YOURRESSOURCEGROUP%
 
-
+# VNET peering
+az network vnet peering create -g %YOURRESSOURCEGROUP% -n VNET03toVNET04 --vnet-name vnet_03 --remote-vnet vnet_04 --allow-vnet-access
